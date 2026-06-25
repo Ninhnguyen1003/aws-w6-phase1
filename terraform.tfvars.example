@@ -1,0 +1,9 @@
+aws_region           = "ap-southeast-1"
+project_name         = "w6-personal"
+key_name             = "ninh_dev"
+instance_type        = "t3.micro"
+environment_tag      = "dev"
+security_guard_schedule = "rate(15 minutes)"
+cost_guard_schedule  = "cron(0 14 * * ? *)" # 21:00 ICT
+allowed_ssh_cidr     = "0.0.0.0/0"          # demo: Security Guard will revoke
+# alarm_email        = "your@email.com"     # optional SNS notifications
