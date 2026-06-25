@@ -19,7 +19,7 @@
 
 ## 2. Architecture Overview
 
-![AWS Architecture Flow](docs/image/w6_aws_architecture_flow.png)
+![AWS Architecture Flow](image/w6_aws_architecture_flow.png)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                        AWS ap-southeast-1                       │
@@ -94,7 +94,7 @@ Apply complete! Resources: 19 added, 0 changed, 0 destroyed.
 
 ### 4.1 Instance running
 
-![Instance Running](docs/image/Instance_running.png)
+![Instance Running](image/Instance_running.png)
 
 ### 4.2 Flask app accessible
 
@@ -110,7 +110,7 @@ curl http://54.151.147.214/health
 {"service":"w6-flask","status":"ok"}
 ```
 
-![Browser](docs/image/browser.png)`
+![Browser](image/browser.png)`
 
 ### 4.3 Flask setup (user_data)
 
@@ -184,9 +184,9 @@ aws lambda invoke \
 
 ### 5.4 Rule revoked (after)
 
-![SSH_Rule](docs/image/SG_rule SSH.png)
-![Cloud Metric](docs/image/CloudWatch_metric.png)
-![Cloud Metric tăng](docs/image/Alarm.png)
+![SSH_Rule](image/SG_rule%20SSH.png)
+![Cloud Metric](image/CloudWatch_metric.png)
+![Cloud Metric tăng](image/Alarm.png)
 ---
 
 ## 6. Cost Guard Lambda
@@ -196,8 +196,6 @@ aws lambda invoke \
 Lambda `w6-personal-cost-guard` dừng tất cả EC2 instances có tag `Environment=dev` đang ở trạng thái `running`. Sau khi stop, Lambda đẩy metric `InstancesStopped` lên CloudWatch namespace `W6/Cost`.
 
 ### 6.2 Instance running with tag
-
-- [ ] **Screenshot:** EC2 `w6-personal-flask` – state `running`, tag `Environment=dev` visible
 
 ### 6.3 Lambda invocation
 
@@ -264,8 +262,8 @@ https://ap-southeast-1.console.aws.amazon.com/cloudwatch/home?region=ap-southeas
 | `w6-personal-ssh-revoked` | `W6/Security / SSHRulesRevoked` | > 0 | Phát hiện SSH rule mở bị revoke |
 | `w6-personal-ec2-cpu-high` | `AWS/EC2 / CPUUtilization` | > 80% | EC2 CPU quá tải |
 
-![Cloudwatch alarm](docs/image/CloudWatch_Alarms.png)
-![Alarm Details](docs/image/alarm_details.png)
+![Cloudwatch alarm](image/CloudWatch_Alarms.png)
+![Alarm Details](image/alarm_details.png)
 ---
 
 ## 10. IAM Least Privilege
@@ -289,7 +287,7 @@ https://ap-southeast-1.console.aws.amazon.com/cloudwatch/home?region=ap-southeas
 
 **Không có:** quyền terminate instances, start instances, hay tác động đến production resources.
 
-![Policy Roles](docs/image/roles.png)
+![Policy Roles](image/roles.png)
 ---
 
 ## 11. Cost Notes
